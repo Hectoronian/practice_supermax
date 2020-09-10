@@ -4,6 +4,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:practice_supermax/categories.dart';
+import 'package:practice_supermax/producto.dart';
 
 void main(){
   runApp(MercadoFamiliar());
@@ -15,11 +16,11 @@ class MercadoFamiliar extends StatelessWidget{
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primaryColor: Colors.lightGreen,
+        primaryColor: Colors.lightGreen[700],
       ),
       home: Scaffold(
         appBar: AppBar(
-            shadowColor: Colors.transparent,
+            //shadowColor: Colors.transparent,
               leading: Icon(
                 Icons.fastfood,
                 size: 40.0,
@@ -36,7 +37,7 @@ class MercadoFamiliar extends StatelessWidget{
               actions: [
                 IconButton(
                   tooltip: 'Buscar',
-                  splashRadius: 20.0,
+                  //splashRadius: 20.0,
                   icon: const Icon(
                     Icons.search,
                     color: Colors.white,
@@ -52,7 +53,7 @@ class MercadoFamiliar extends StatelessWidget{
                         Icon(
                             Icons.shopping_cart,
                             color: Colors.white,
-                            size: 30.0,
+                            size: 26.0,
                           ),
                         Text(
                           '\$0.95',
@@ -69,6 +70,19 @@ class MercadoFamiliar extends StatelessWidget{
         body: Column(
           children: [
             Menu(),
+            Container(
+              alignment: AlignmentDirectional.bottomStart,
+              child: Row(
+                children: <Widget>[
+                  Producto(
+                      Icon(
+                    Icons.fastfood,
+                        size: 50.0,
+                  ),
+                      Producto.nombre[0], 4, 1.23),
+                ],
+              ),
+            ),
             //TODO template para listado de productos
             // Promocion(nivel: 1, nombreDePromo: "Knor", listaDeProductos(Lista))
           ],
